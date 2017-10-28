@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.inhatc.mapper.StudentInfoMapper">
+
+	<select id="getTime" resultType="string">
+		select now()
+	</select>
+
+	<insert id="insertStudentInfo">
+		insert into tbl_studentinfo1 (classnum,username,addr,phone,email)
+		values
+		(#{classnum}, #{username}, #{addr}, #{phone}, #{email})
+	</insert>
+
+		<select id="selectStudentInfo" resultType="com.inhatc.domain.StudentInfoVO">
+		select
+		*
+		from
+		tbl_studentinfo1
+		where classnum=#{classnum}
+	</select>
+	
+
+</mapper>
